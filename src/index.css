@@ -11,3 +11,114 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Reset and basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar styling */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  padding: 1rem;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.navbar-buttons button {
+  background: #61dafb;
+  border: none;
+  padding: 8px 16px;
+  color: #282c34;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.navbar-buttons button:hover {
+  background-color: #4ec1e0;
+}
+
+/* Form container */
+.form-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Login and register backgrounds */
+.login-background {
+  background: linear-gradient(135deg, #61dafb, #4ec1e0);
+}
+
+.register-background {
+  background: linear-gradient(135deg, #ff9a9e, #fecfef);
+}
+
+/* Form styles */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="number"] {
+  margin-bottom: 1rem;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form button {
+  padding: 10px;
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #4ec1e0;
+}
+
+/* Checkbox styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+}

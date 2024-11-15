@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './components/Home';
+import Register from './components/Register';
+import Login from './components/Login';
+import Navbar from './components/Navbar';
 
-function App() {
+const App = () => {
+  // Define states for authToken and firstName
+  const [XAHeBSni8cP8b0YL5R1rNYZ3OhADSUno6OtskKC06bp93OC2b9gELKKg0w6nEPdi, setAuthToken] = useState(localStorage.getItem('authToken') || null);
+  const [firstName, setFirstName] = useState(localStorage.getItem('first_name') || '');
+
+  const handleLogout = () => {
+    localStorage.removeItem('XAHeBSni8cP8b0YL5R1rNYZ3OhADSUno6OtskKC06bp93OC2b9gELKKg0w6nEPdi');
+    localStorage.removeItem('first_name');
+    setAuthToken(null);
+    setFirstName('');
+  };
+
+  useEffect(() => {
+    if (XAHeBSni8cP8b0YL5R1rNYZ3OhADSUno6OtskKC06bp93OC2b9gELKKg0w6nEPdi) {
+      console.log('User is authenticated with token:', XAHeBSni8cP8b0YL5R1rNYZ3OhADSUno6OtskKC06bp93OC2b9gELKKg0w6nEPdi);
+    }
+  }, [XAHeBSni8cP8b0YL5R1rNYZ3OhADSUno6OtskKC06bp93OC2b9gELKKg0w6nEPdi]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Pass authToken, handleLogout, and firstName to Navbar */}
+      <Navbar authToken={XAHeBSni8cP8b0YL5R1rNYZ3OhADSUno6OtskKC06bp93OC2b9gELKKg0w6nEPdi} handleLogout={handleLogout} firstName={firstName} />
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/register"
+            element={<Register setAuthToken={setAuthToken} setFirstName={setFirstName} />}
+          />
+          <Route
+            path="/login"
+            element={<Login setAuthToken={setAuthToken} setFirstName={setFirstName} />}
+          />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
